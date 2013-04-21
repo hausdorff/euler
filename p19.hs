@@ -1,4 +1,5 @@
-import Data.Time
+import Data.Time.Calendar
+import Data.Time.Calendar.WeekDate
 
 totalDays = diffDays (fromGregorian 2000 12 31) (fromGregorian 1900 0 1)
 
@@ -48,7 +49,13 @@ numYears = 101 -- not 99 because we're dropping the first year
 weeksYears daysToDrop nyears = drop daysToDrop $ zip infWeeks $ concat $
                     take nyears$ infYears 1900
 
-sundaysFirstMonth = filter (\(x,y) -> x == 7 && y == 1) $
-                    weeksYears daysFirstYear numYears
+solution = length $ filter (\(x,y) -> x == 7 && y == 1) $
+           weeksYears daysFirstYear numYears
 
-main = print $ length sundaysFirstMonth
+main = print $ solution
+
+
+{- A better solution, using libraries that I didn't know about -}
+
+solution' = length $ filter (\(a, b, c)->(c==7))
+            [toWeekDate$fromGregorian a b 1|a<-[1901..2000], b<-[1..12]]
