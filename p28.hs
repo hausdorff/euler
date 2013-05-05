@@ -36,6 +36,7 @@ sqSum :: Int -> (Int, Int)
 sqSum n | odd n     = _sqSum' (n-1)
         | otherwise = error "the NxN square always have an odd number of sides"
 
+-- 669171001
 solution :: Int
 solution = fst $ sqSum 1001
 
