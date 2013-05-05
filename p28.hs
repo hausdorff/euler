@@ -40,5 +40,8 @@ sqSum n | odd n     = _sqSum' (n-1)
 solution :: Int
 solution = fst $ sqSum 1001
 
+-- EDIT: a friend's solution is much more elegant. I am humbled.
+solution' = sum (map (\n -> 4*(n-2)^2+10*(n-1)) [3,5..1001]) + 1
+
 main :: IO ()
 main = print solution
