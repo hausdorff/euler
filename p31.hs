@@ -1,9 +1,6 @@
 pence :: [Int]
 pence = [1, 2, 5, 10, 20, 50, 100, 200]
 
-total :: [Int] -> Int
-total = sum . zipWith (*) pence
-
 -- if == target, +1
 -- if < target, add a coin
 -- if > target, return
